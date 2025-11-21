@@ -4,6 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>DevilCraft</title>
+
+<style>
+/* بداية: نخلي iframe مخفي ومتصغر */
+.discord-center iframe {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* class يظهر الـ iframe */
+.discord-center iframe.show {
+  opacity: 1;
+  transform: scale(1);
+}
+</style>
+
+<script>
+// لما الصفحة تجهز، نضيف class للـ iframe عشان يظهر بالأنيميشن
+window.addEventListener('DOMContentLoaded', ()=>{
+  const iframe = document.querySelector('.discord-center iframe');
+  setTimeout(()=>{   // تأخير بسيط يعطي تأثير smooth
+    iframe.classList.add('show');
+  }, 300);
+});
+</script>
+
+
   <style>
   .card.server-info {
   border: 2px solid #ff2d2d; /* اللون الأحمر */
